@@ -2,28 +2,49 @@ package org.example.workZone;
 
 public class NodosStructure {
 
+    public class Stack implements IStackTwo{
+
+        private Node first;
+
+        @Override
+        public void add(int a){
+            this.first = new Node(a, this.first);
+        }
+        @Override
+        public void remove(){
+            if (this.first == null){
+                System.out.println("No se puede desapilar una pila vacia.");
+                return;
+            }
+            this.first = this.first.getNext();}
+
+        @Override
+        public boolean isEmpty(){
+
+            return this.first == null;
+
+        }
 
 
-}
+        @Override
+        public int getTop(){
+            if ( this.first == null){
+                System.out.println("No se puede obtener el tope de una pila vacia.");
+                return -1;
+            }
+            return this.first.getValue();
+            //getValue me brinda el valor del nodo, no lo modifica.
 
-public static void main(String[] args){
-
-    String persona1 = "Julian Weich";
-    String persona2 = "Pedro Picapiedras";
-
-    Nodo n1 = new Nodo(persona1);
-    Nodo n2 = new Nodo(persona2);
-    Nodo n3 = new Nodo(persona3);
-
-    n1.setSiguiente(n2);
-    n3.setSiguiente(n3);
-
-    Nodo aux = n1;
-
-    for (int i = 0; i < 3;i++){
-
-        String
-
+        }
     }
 
+
+
+
 }
+
+
+
+
+
+
